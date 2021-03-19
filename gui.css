@@ -1,0 +1,102 @@
+#guiLayer, #guiGrid1, #buttonGrid0In, #buttonGrid1, #buttonGrid2 {
+  display: grid;
+  /*grid-auto-flow: column;*/
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+#buttonGrid0, #buttonGrid0In, #buttonGrid1, #buttonGrid2 {
+  overflow: hidden;
+  position: relative;
+}
+#guiLayer {
+  font-weight: 400;
+  grid-template-columns: auto;
+  grid-template-rows: auto 210px;
+  position: fixed;
+  width: 100%;  height: 100%;
+  z-index: 1;
+}
+#renderCanvas {
+  z-index: 0;
+}
+#guiGrid0 {
+  width: 100%;  height: 100%;
+}
+#guiGrid1 {
+  background-color: gray;
+  grid-template-columns: 210px auto 70px auto 210px;
+  grid-template-rows: 210px;
+  margin-top: -10%;
+  padding: 10%;
+  padding-top: 0;
+  width: 80%;  height: 100%;
+}
+.buttonGrid {
+
+}
+#buttonGrid0 {
+  border-radius: 10%;
+  font-weight: 900;
+}
+#buttonGrid0In {
+  border-radius: 10%;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+}
+#buttonGrid1 {
+  grid-template-columns: 70px;
+  grid-template-rows: auto auto;
+  padding-top: 70px;
+}
+#buttonGrid2 {
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  padding-left: 52.5px;  padding-top: 52.5px;
+}
+.btnG {
+  background-color: rgba(255, 255, 255, .5);
+  line-height: 70px;
+  position: relative;
+  text-align: center;
+  -webkit-backdrop-filter: blur(32px) contrast(1.2);
+  width: 70px;  height: 70px;
+}
+.btnInput {
+  display: none;
+}
+.btnG:hover {
+  background-color: rgba(255, 255, 255, .8);
+  transition: .3s ease-in-out;
+}
+#btnG00 {
+  border-radius: 10% 0 0 0;
+}
+#btnG02 {
+  border-radius: 0 10% 0 0;
+}
+#btnG06 {
+  border-radius: 0 0 0 10%;
+}
+#btnG08 {
+  border-radius: 0 0 10% 0;
+}
+#btnG10 {
+  background-color: rgba(255, 187, 187, .5);
+  border-radius: 10% 10% 0 0;
+}
+#btnG11 {
+  background-color: rgba(187, 220, 255, .5);
+  border-radius: 0 0 10% 10%;
+}
+#btnG10:hover {
+  background-color: rgba(255, 187, 187, .8);
+}
+#btnG11:hover {
+  background-color: rgba(187, 220, 255, .8);
+}
+#btnG20 {
+  border-radius: 10%;
+  line-height: 105px;
+  width: 105px;  height: 105px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
