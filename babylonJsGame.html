@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
   <meta charset="UTF-8">
@@ -43,42 +43,42 @@
     <div id="guiGrid1">
       <div id="buttonGrid0" class="buttonGrid">
         <div id="buttonGrid0In">
-          <label id="btnG00" class="btnG" for="btn⌜">
-          ⌜<input type="button" name="btn⌜" id="btn⌜" class="btnInput" onclick="fireKeyEvent('btn⌜', 'keydown', 37 & 38)">
+          <label id="btnG00" class="btnG" for="btnLU">
+          ⌜<input type="button" name="btnLU" id="btnLU" class="btnInput">
           </label>
-          <label id="btnG01" class="btnG" for="btn∧">
-          ∧<input type="button" name="btn∧" id="btn∧" class="btnInput" onclick="fireKeyEvent('btn∧', 'keydown', 38)">
+          <label id="btnG01" class="btnG" for="btnU">
+          ∧<input type="button" name="btnU" id="btnU" class="btnInput">
           </label>
-          <label id="btnG02" class="btnG" for="btn⌝">
-          ⌝<input type="button" name="btn⌝" id="btn⌝" class="btnInput" onclick="fireKeyEvent('btn⌝', 'keydown', 38 & 39)">
+          <label id="btnG02" class="btnG" for="btnRU">
+          ⌝<input type="button" name="btnRU" id="btnRU" class="btnInput">
           </label>
-          <label id="btnG03" class="btnG" for="btn﹤">
-          ﹤<input type="button" name="btn﹤" id="btn﹤" class="btnInput" onclick="fireKeyEvent('btn﹤', 'keydown', 37)">
+          <label id="btnG03" class="btnG" for="btnL">
+          ﹤<input type="button" name="btnL" id="btnL" class="btnInput">
           </label>
-          <label id="btnG04" class="btnG" for="btn○">
-          ○<input type="button" name="btn○" id="btn○" class="btnInput">
+          <div id="btnG04" class="btnGO">
+          ○
+          </div>
+          <label id="btnG05" class="btnG" for="btnR">
+          ﹥<input type="button" name="btnR" id="btnR" class="btnInput">
           </label>
-          <label id="btnG05" class="btnG" for="btn﹥">
-          ﹥<input type="button" name="btn﹥" id="btn﹥" class="btnInput" onclick="fireKeyEvent('btn﹥', 'keydown', 39)">
+          <label id="btnG06" class="btnG" for="btnLD">
+          ⌞<input type="button" name="btnLD" id="btnLD" class="btnInput">
           </label>
-          <label id="btnG06" class="btnG" for="btn⌞">
-          ⌞<input type="button" name="btn⌞" id="btn⌞" class="btnInput" onclick="fireKeyEvent('btn⌞', 'keydown', 37 & 40)">
+          <label id="btnG07" class="btnG" for="btnD">
+          ∨<input type="button" name="btnD" id="btnD" class="btnInput">
           </label>
-          <label id="btnG07" class="btnG" for="btn∨">
-          ∨<input type="button" name="btn∨" id="btn∨" class="btnInput" onclick="fireKeyEvent('btn∨', 'keydown', 40)">
-          </label>
-          <label id="btnG08" class="btnG" for="btn⌟">
-          ⌟<input type="button" name="btn⌟" id="btn⌟" class="btnInput" onclick="fireKeyEvent('btn⌟', 'keydown', 39 & 40)">
+          <label id="btnG08" class="btnG" for="btnRD">
+          ⌟<input type="button" name="btnRD" id="btnRD" class="btnInput">
           </label>
         </div>
       </div>
       <div id="btnGGap0">0</div>
       <div id="buttonGrid1" class="buttonGrid">
-        <label id="btnG10" class="btnG" for="btn+">
-        +<input type="button" name="btn+" id="btn+" class="btnInput" onclick="fireKeyEvent('btn+', 'keydown', 13)">
+        <label id="btnG10" class="btnG" for="btnP">
+        +<input type="button" name="btnP" id="btnP" class="btnInput">
         </label>
-        <label id="btnG11" class="btnG" for="btn-">
-        -<input type="button" name="btn-" id="btn-" class="btnInput">
+        <label id="btnG11" class="btnG" for="btnM">
+        -<input type="button" name="btnM" id="btnM" class="btnInput">
         </label>
       </div>
       <div id="btnGGap1">0</div>
@@ -89,59 +89,9 @@
       </div>
     </div>
   </div>
-  <script>
-    const canvas = document.getElementById("renderCanvas")
-    const engine = new BABYLON.Engine(canvas, true)
-    canvas.style.width = "100%";
-    canvas.style.height = "100%"; 
-    engine.enableOfflineSupport = true
-    /******* 創建場景 ******/
-    const createScene = function () {
-      // 實例化場景
-      const scene = new BABYLON.Scene(engine)
-      var lleSkyBlue = new BABYLON.Color3(0.27, 0.62, 1);
-      var lleSkyBlueLi = new BABYLON.Color3(0.42, 0.78, 1);
-      var lleSilver = new BABYLON.Color3(0.3, 0.3, 0.3);
-      scene.clearColor = lleSkyBlue;
-      scene.ambientColor = lleSilver;
-      var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
-      var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-      skyboxMaterial.backFaceCulling = false;
-      skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
-      skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-      skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-      skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-      skyboxMaterial.disableLighting = true;
-      skybox.infiniteDistance = true;
-      skybox.material = skyboxMaterial;
-      // 創建相機並添加到canvas
-      const camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, new BABYLON.Vector3(0, 0, 5), scene)
-      camera.attachControl(canvas, true)
-      // 添加光
-      const light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(1, 1, 0), scene)
-      const light2 = new BABYLON.PointLight("light2", new BABYLON.Vector3(0, 1, -1), scene)
-      // 創建內容，一個球
-      /*const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2 }, scene)*/
-      const box = BABYLON.MeshBuilder.CreateBox("box", {}, scene)
-      return scene
-    }
-    /******* 結束創建場景 ******/
-    const scene = createScene()
-    // loop
-    engine.runRenderLoop(function () {
-      scene.render()
-    })
-    // resize
-    window.addEventListener("resize", function () {
-      engine.resize()
-    })
-  </script>
+  <script src="theBabylonScene.js"></script>
   <script src="fireKeyEvent.js"></script>
   <script>    alert( 'Hello, world!' );</script>
 </body>
 
 </html>
-<!--基礎Babylonjs包-->
-<script src="https://cdn.babylonjs.com/babylon.js"></script>
-<!--loader, 用於加載素材-->
-<script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
