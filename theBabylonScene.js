@@ -68,7 +68,7 @@
           scene.fogColor = lleSkyBlueLi;
       });
 
-      var adt = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+/*******      var adt = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
         var xAddPos = 0;
         var yAddPos = 0;
         var xAddRot = 0;
@@ -217,7 +217,7 @@
 
 
         return rect;
-      }
+      }******/
 
       // 方向控制
       const btnLU = document.querySelector('#btnLU');
